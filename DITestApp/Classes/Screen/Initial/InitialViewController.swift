@@ -18,6 +18,11 @@ class InitialViewController: UIViewController {
     
     var interactor: InitialInteractorType?
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        interactor?.fetchFromNetwork()
+    }
+    
     @IBAction func didTapNextButton(_ sender: Any) {
         delegate?.viewDidTapNextButton(self)
     }

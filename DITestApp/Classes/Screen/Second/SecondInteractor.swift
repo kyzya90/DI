@@ -25,11 +25,12 @@ class SecondInteractor: SecondInteractorType {
     
     func fetchFromNetwork() {
         networkService.loadItems {[weak self] (items) in
+            print("SecondInteractor has finished fetching items: \(items)")
             self?.saveToDb()
         }
     }
     
     func saveToDb() {
-        
+        print("SecondInteractor has finished saving")
     }
 }

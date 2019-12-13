@@ -26,6 +26,7 @@ class InititalInteractor: InitialInteractorType {
     
     func fetchFromNetwork() {
         networkService.loadItems {[weak self] (array) in
+            print("Get items \(array)")
             self?.saveToDb()
         }
     }

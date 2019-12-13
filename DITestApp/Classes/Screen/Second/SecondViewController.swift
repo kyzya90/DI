@@ -11,4 +11,9 @@ import UIKit
 
 class SecondViewController: UIViewController {
     var interactor: SecondInteractorType?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        interactor?.fetchFromNetwork()
+    }
 }
