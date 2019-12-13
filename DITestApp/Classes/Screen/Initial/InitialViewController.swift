@@ -9,6 +9,16 @@
 import Foundation
 import UIKit
 
+protocol InitialViewControllerDelegate: class {
+    func viewDidTapNextButton(_ view: InitialViewController)
+}
+
 class InitialViewController: UIViewController {
+    weak var delegate: InitialViewControllerDelegate?
+    
     var interactor: InitialInteractorType?
+    
+    @IBAction func didTapNextButton(_ sender: Any) {
+        delegate?.viewDidTapNextButton(self)
+    }
 }

@@ -28,6 +28,7 @@ class Router: RouterType {
     func showInitialScreen() {
         let viewController = assembly.initialViewController
         let navigationController = UINavigationController(rootViewController: viewController)
+        viewController.delegate = self
         self.navigationController = navigationController
         window?.rootViewController = navigationController
     }
@@ -35,5 +36,15 @@ class Router: RouterType {
     func showSecondScreen(animated: Bool) {
         let viewController = assembly.secondViewController
         navigationController?.pushViewController(viewController, animated: animated)
+    }
+    
+    deinit {
+        print("deinited")
+    }
+}
+
+extension Router: InitialViewControllerDelegate {
+    func viewDidTapNextButton(_ view: InitialViewController) {
+        showSecondScreen(animated: true)
     }
 }
