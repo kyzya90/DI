@@ -8,5 +8,14 @@
 
 import Foundation
 
-protocol NetworkServiceType { }
-class NetworkService: NetworkServiceType { }
+protocol NetworkServiceType {
+    func loadItems(completion: @escaping ([String]) -> Void)
+}
+
+class NetworkService: NetworkServiceType {
+    func loadItems(completion: @escaping ([String]) -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            completion(["1", "2", "3"])
+        }
+    }
+}

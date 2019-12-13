@@ -14,9 +14,23 @@ protocol InitialInteractorType {
 }
 
 class InititalInteractor: InitialInteractorType {
+    
+    private let networkService: NetworkServiceType
+    private let storageService: StorageServiceType
+    
+    init(networkService: NetworkServiceType,
+         storageService: StorageServiceType) {
+        self.networkService = networkService
+        self.storageService = storageService
+    }
+    
     func fetchFromNetwork() {
+        networkService.loadItems {[weak self] (array) in
+            self?.saveToDb()
+        }
     }
     
     func saveToDb() {
+        print("saving to Db")
     }
 }

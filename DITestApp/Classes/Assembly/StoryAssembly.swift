@@ -15,6 +15,7 @@ protocol StoryAssemblyType {
 }
 
 class StoryAssembly: StoryAssemblyType {
+    
     lazy var initialViewController: UIViewController = {
         return UIViewController()
     }()

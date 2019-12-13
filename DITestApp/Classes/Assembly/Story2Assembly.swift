@@ -15,6 +15,7 @@ protocol Story2AssemblyType {
 }
 
 class Story2Assembly: Story2AssemblyType {
+    
     lazy var profileScreen: UIViewController = {
         return UIViewController()
     }()
