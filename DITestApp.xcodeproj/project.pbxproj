@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		06BB7837D0700FDFB161CF7D /* Pods_DITestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BA20A527F11AA705F343C4 /* Pods_DITestApp.framework */; };
+		5011340823A3B06E004404BB /* DependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5011340723A3B06E004404BB /* DependencyProvider.swift */; };
+		5011340A23A3B0A2004404BB /* DependencyContainers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5011340923A3B0A2004404BB /* DependencyContainers.swift */; };
 		5062BE1423A2A27B007B5C14 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5062BE1323A2A27B007B5C14 /* NetworkService.swift */; };
 		5062BE1623A2A2A0007B5C14 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5062BE1523A2A2A0007B5C14 /* StorageService.swift */; };
 		5062BE1823A2A2E7007B5C14 /* Story2Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5062BE1723A2A2E7007B5C14 /* Story2Assembly.swift */; };
@@ -27,6 +29,8 @@
 /* Begin PBXFileReference section */
 		22BA20A527F11AA705F343C4 /* Pods_DITestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DITestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BD4FAD2A53CDB31EE6EB97B /* Pods-DITestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DITestApp.release.xcconfig"; path = "Target Support Files/Pods-DITestApp/Pods-DITestApp.release.xcconfig"; sourceTree = "<group>"; };
+		5011340723A3B06E004404BB /* DependencyProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyProvider.swift; sourceTree = "<group>"; };
+		5011340923A3B0A2004404BB /* DependencyContainers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainers.swift; sourceTree = "<group>"; };
 		5062BE1323A2A27B007B5C14 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		5062BE1523A2A2A0007B5C14 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		5062BE1723A2A2E7007B5C14 /* Story2Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story2Assembly.swift; sourceTree = "<group>"; };
@@ -58,6 +62,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5011340623A3B06E004404BB /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				5011340723A3B06E004404BB /* DependencyProvider.swift */,
+				5011340923A3B0A2004404BB /* DependencyContainers.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
 		5062BE1223A2A27B007B5C14 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +114,7 @@
 		50BE29D323A2978200880C9D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5011340623A3B06E004404BB /* DI */,
 				5062BE1223A2A27B007B5C14 /* Services */,
 				50BE29E023A29A5C00880C9D /* Screen */,
 				50BE29D923A297D900880C9D /* Assembly */,
@@ -292,9 +306,11 @@
 				5062BE1823A2A2E7007B5C14 /* Story2Assembly.swift in Sources */,
 				50BE29D623A2978200880C9D /* Router.swift in Sources */,
 				50BE29EE23A29AEF00880C9D /* SecondInteractor.swift in Sources */,
+				5011340A23A3B0A2004404BB /* DependencyContainers.swift in Sources */,
 				50BE29E923A29AB100880C9D /* InitialViewController.swift in Sources */,
 				50BE29DB23A297D900880C9D /* ApplicationAssembly.swift in Sources */,
 				50BE29EC23A29AC100880C9D /* InitialInteractor.swift in Sources */,
+				5011340823A3B06E004404BB /* DependencyProvider.swift in Sources */,
 				50BE29BC23A25EFF00880C9D /* AppDelegate.swift in Sources */,
 				50BE29DD23A297E500880C9D /* StoryAssembly.swift in Sources */,
 			);

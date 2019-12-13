@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import Swinject
 
 protocol Story2AssemblyType {
     var profileScreen: UIViewController { get }
@@ -17,29 +16,21 @@ protocol Story2AssemblyType {
 
 class Story2Assembly: Story2AssemblyType {
     
-    private let container: Container
+    private let container: Story2Container
     
-    init(container: Container) {
+    init(container: Story2Container) {
         self.container = container
     }
     
     lazy var profileScreen: UIViewController = {
-        guard let networkService = container.resolve(NetworkServiceType.self)
-        else { fatalError("could not get networkService") }
-        guard let storageService = container.resolve(StorageServiceType.self)
-        else { fatalError("could not get storageService") }
-        let interactor = InititalInteractor(networkService: networkService,
-                                            storageService: storageService)
+        let interactor = InititalInteractor(networkService: container.networkService,
+                                            storageService: container.storageService)
         return UIViewController()
     }()
     
     lazy var feedScreen: UIViewController = {
-        guard let networkService = container.resolve(NetworkServiceType.self)
-        else { fatalError("could not get networkService") }
-        guard let storageService = container.resolve(StorageServiceType.self)
-        else { fatalError("could not get storageService") }
-        let interactor = InititalInteractor(networkService: networkService,
-                                            storageService: storageService)
+        let interactor = InititalInteractor(networkService: container.networkService,
+                                            storageService: container.storageService)
         return UIViewController()
     }()
 }

@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import Swinject
 
 protocol StoryAssemblyType {
     var initialViewController: InitialViewController { get }
@@ -17,20 +16,16 @@ protocol StoryAssemblyType {
 
 class StoryAssembly: StoryAssemblyType {
     
-    private let container: Container
+    private let container: StoryContainer
     
-    init(container: Container) {
+    init(container: StoryContainer) {
         self.container = container
     }
     
     lazy var initialViewController: InitialViewController = {
         let initialViewController: InitialViewController = self.viewController()
-        guard let networkService = container.resolve(NetworkServiceType.self)
-        else { fatalError("could not get networkService") }
-        guard let storageService = container.resolve(StorageServiceType.self)
-        else { fatalError("could not get storageService") }
-        let interactor = InititalInteractor(networkService: networkService,
-                                            storageService: storageService)
+        let interactor = InititalInteractor(networkService: container.networkService,
+                                            storageService: container.storageService)
         initialViewController.interactor = interactor
         return initialViewController
     }()
@@ -38,12 +33,8 @@ class StoryAssembly: StoryAssemblyType {
     lazy var secondViewController: SecondViewController = {
         let secondVC: SecondViewController = self.viewController()
         let initialViewController: InitialViewController = self.viewController()
-        guard let networkService = container.resolve(NetworkServiceType.self)
-        else { fatalError("could not get networkService") }
-        guard let storageService = container.resolve(StorageServiceType.self)
-        else { fatalError("could not get storageService") }
-        let interactor = SecondInteractor(networkService: networkService,
-                                          storageService: storageService)
+        let interactor = SecondInteractor(networkService: container.networkService,
+                                          storageService: container.storageService)
         secondVC.interactor = interactor
         return secondVC
     }()
